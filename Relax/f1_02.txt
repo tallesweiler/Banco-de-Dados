@@ -1,0 +1,9 @@
+-- Escreva uma consulta para obter a(s) nacionalidade(s) (coluna nationality) nas quais não há equipes (tabela consturctors), mas que têm pilotos (tabela drivers) que já atingiram pelo menos o terceiro lugar em uma corrida (tabela results).
+
+t1 = drivers ⨝ results
+t2 = pi nationality(sigma positionOrder ≤ 3(t1))
+t3 = t2 ⟕ constructors
+
+pi drivers.nationality(sigma constructors.constructorId = null (t3))
+
+
